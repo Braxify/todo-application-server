@@ -13,7 +13,7 @@ app.use(cookieParser());
 app.use(cors({ credentials: true, origin: config.get('CLIENT_URL') }));
 
 // Константы из config
-const PORT = config.get('PORT') || 8000;
+const PORT = process.env.PORT || config.get('PORT') || 5000;
 const MONGODB_URI = config.get('MONGODB_URI');
 
 // Маршрутизация
