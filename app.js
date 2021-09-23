@@ -10,11 +10,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({ credentials: true, origin: config.get('CLIENT_URL') }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL || config.get('CLIENT_URL') }));
 
 // Константы из config
-const PORT = process.env.PORT || config.get('PORT') || 5000;
-const MONGODB_URI = config.get('MONGODB_URI');
+const PORT = process.env.PORT || config.get('PORT');
+const MONGODB_URI = process.env.MONGODB_URI || config.get('MONGODB_URI');
 
 // Маршрутизация
 app.use('/', require('./routes'));

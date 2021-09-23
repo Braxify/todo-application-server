@@ -11,8 +11,8 @@ const Token = require('../models/Token');
 const UserDto = require('../dtos/user.dto');
 
 // Константы
-const ACCESS_SECRET = config.get('JWT_ACCESS_SECRET');
-const REFRESH_SECRET = config.get('JWT_REFRESH_SECRET');
+const ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || config.get('JWT_ACCESS_SECRET');
+const REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || config.get('JWT_REFRESH_SECRET');
 
 class UsersController {
   // Регистрация +

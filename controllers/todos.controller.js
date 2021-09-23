@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const { validationResult } = require('express-validator');
-const SECRET = require('config').get('JWT_ACCESS_SECRET');
+const SECRET = process.env.JWT_ACCESS_SECRET || require('config').get('JWT_ACCESS_SECRET');
 
 // Models
 const Todo = require('../models/Todo');
